@@ -1,0 +1,14 @@
+This repository contains a WP7.1 phone project which holds both an access
+library to the Untappd service and also a test application. This library may
+be of use to anyone wanting to application for Untappd on either the windows
+phone or windows desktop and eventually Xbox.
+
+This is work in progress, I am also working on my own app and I am developing
+the library for that work and will maintain it as best I can to track changes
+in the Untappd API.
+
+The application here will simply be a tester for the API rather like the API 
+Exporer provided by Untappd.
+
+In order to use the library component in this Repo you must first obtain a
+API key from Untappd see their website Untappd.com for details

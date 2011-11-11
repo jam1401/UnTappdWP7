@@ -15,13 +15,13 @@ using System.IO;
 
 namespace WPUntappd.service
 {
-    public delegate void SvcResponseEventHandler(object sender, EventArgs e);
-    public static readonly enum BadgeSorts { all = 1, beer = 2, venue = 3, special = 4 };
-    public static readonly enum SearchSort { count = 1, name = 2, none=3 };
-    public static readonly enum BreweryType { all = 1, macro = 2, micro = 3, local = 4 };
-    public static readonly enum Period { daily = 1, weekly = 2, monthly = 3 };
-    public static readonly enum SocialCheckin { on = 1, off = 2 };
-    public static readonly enum Rating { none = 0, one = 1, two = 2, three = 3, four = 4, five = 5 };
+    public delegate void SvcResponseEventHandler(object sender, OpenReadCompletedEventArgs e);
+    public enum BadgeSorts { all = 1, beer = 2, venue = 3, special = 4 };
+    public enum SearchSort { count = 1, name = 2, none=3 };
+    public enum BreweryType { all = 1, macro = 2, micro = 3, local = 4 };
+    public enum Period { daily = 1, weekly = 2, monthly = 3 };
+    public enum SocialCheckin { on = 1, off = 2 };
+    public enum Rating { none = 0, one = 1, two = 2, three = 3, four = 4, five = 5 };
 
     /// <summary>
     /// Provides Raw access to the untappd service
@@ -481,20 +481,22 @@ namespace WPUntappd.service
         /// <param name="radius">The numeric radius that you are trying to search within. The maximum for this value is 50 and the default is 5</param>
         public void PublicFeed(string since = null, string offset = null, string longitude = null, string latitude = null, string radius = null)
         {
-            radius = ValidateRadius(radius);
+            
             var requestArguments = new Dictionary<string, string>();
 
-            radius = ValidateRadius(radius);
-            if (string.IsNullOrEmpty(since))
+            if (!string.IsNullOrEmpty(since))
                 requestArguments["since"] = since;
-            if (string.IsNullOrEmpty(offset))
+            if (!string.IsNullOrEmpty(offset))
                 requestArguments["offset"] = offset; 
             if (IsGeo(longitude))
                 requestArguments["geolng"] = longitude; 
             if (IsGeo(latitude))
                 requestArguments["geolat"] = latitude;
-            if (string.IsNullOrEmpty(radius))
+            if (!string.IsNullOrEmpty(radius))
+            {
+                radius = ValidateRadius(radius);
                 requestArguments["radius"] = radius;
+            }
 
             SendAsyncRequest("thepub", requestArguments);
         }
@@ -684,7 +686,7 @@ namespace WPUntappd.service
                 string basicAuth = "Basic " + System.Convert.ToBase64String(authByteArray);
                 untappdClient.Headers[HttpRequestHeader.Authorization] = basicAuth;
             }
-            Uri serviceUri = new Uri(uriBase + "/" + method + "?" + BuildQueryList(args));
+            Uri serviceUri = new Uri(uriBase + "/" + method + "?" + BuildQueryList(args), UriKind.Absolute);
             untappdClient.OpenReadAsync(serviceUri);
             _lastMethod = method;
         }
@@ -697,9 +699,9 @@ namespace WPUntappd.service
             foreach (var argument in args)
             {
                 if (sb.Length > 0) sb.Append('&');
-                sb.AppendFormat("{0}={1}", argument.Key, argument.Value);
+                sb.AppendFormat("{0}={1}", argument.Key, UrlEncode(argument.Value));
             }
-            return UrlEncode(sb.ToString());
+            return sb.ToString();
         }
 
         private string UrlEncode(string value)
@@ -742,11 +744,36 @@ namespace WPUntappd.service
                 // Debug case just send to the Console
                 if (e.Error == null)
                 {
-                    Console.WriteLine(e.Result);
+                    Console.WriteLine("Good Result");
+                    StreamReader reader = new StreamReader(e.Result);
+                    string str = reader.ReadLine();
+                    while (str != null)
+                    {
+                        Console.WriteLine(str);
+                        str = reader.ReadLine();
+                    }
                 }
                 else
                 {
+                    Console.WriteLine("Error");
                     Console.WriteLine(e.Error.Message);
+                    try
+                    {
+                        Console.WriteLine(e.Result);
+                    }
+                    catch (WebException ex)
+                    {
+                        Console.WriteLine("Exception from remote host HTTP Status is " + ex.Status.ToString());
+                        WebResponse resp = ex.Response;
+
+                        StreamReader reader = new StreamReader(resp.GetResponseStream());
+                        string str = reader.ReadLine();
+                        while (str != null)
+                        {
+                            Console.WriteLine(str);
+                            str = reader.ReadLine();
+                        }
+                    }
                 }
 
             }

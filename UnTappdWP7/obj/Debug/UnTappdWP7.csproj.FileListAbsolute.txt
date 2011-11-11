@@ -1,0 +1,16 @@
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\App.g.i.cs
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\MainPage.g.i.cs
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\Views\Feeds\Pub.g.i.cs
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\UnTappdWP7.g.resources
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\Bin\Debug\ApplicationIcon.png
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\Bin\Debug\Background.png
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\Bin\Debug\UnTappdWP7.dll
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\Bin\Debug\UnTappdWP7.pdb
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\Bin\Debug\AppManifest.xaml
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\Bin\Debug\UnTappdWP7.xap
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\UnTappdWP7.dll
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\UnTappdWP7.pdb
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\XapCacheFile.xml
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\Views\Friends\PendingFriends.g.i.cs
+C:\Users\jam\gitprojects\UnTappdWP7\UnTappdWP7\obj\Debug\Views\Logon.g.i.cs

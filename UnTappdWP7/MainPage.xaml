@@ -22,12 +22,54 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="ApplicationTitle" Text="{StaticResource AppName}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="{StaticResource MenuPage}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer BorderBrush="Transparent">
+                <StackPanel Margin="5">
+                    <TextBlock Text="Feeds" Style="{StaticResource PhoneTextGroupHeaderStyle}"/>
+                    <HyperlinkButton NavigateUri="/Feed/friend" Content="Friend Feed" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Feed/user" Content="User Feed" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Feed/pub" Content="Pub Feed" Style="{StaticResource PhoneHyperlinkStyle}" />
+                    <HyperlinkButton NavigateUri="/Feed/venue" Content="Venue Feed" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Feed/beer" Content="Beer Feed" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Feed/brewery" Content="Brewery Feed" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+
+                    <TextBlock Text="Friends" Style="{StaticResource PhoneTextGroupHeaderStyle}"/>
+                    <HyperlinkButton NavigateUri="/Friends/pending" Content="Pending Friends" Style="{StaticResource PhoneHyperlinkStyle}"/>
+
+                    <TextBlock Text="Info" Style="{StaticResource PhoneTextGroupHeaderStyle}"/>
+                    <HyperlinkButton NavigateUri="/Info/brewery" Content="Brewery Info" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Info/beer" Content="Beer Info" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Info/venue" Content="Venue Info" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Info/checkin" Content="Checkin Info" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+
+                    <TextBlock Text="User" Style="{StaticResource PhoneTextGroupHeaderStyle}"/>
+                    <HyperlinkButton NavigateUri="/User/info" Content="User Info" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/User/badges" Content="User Badges" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/User/friends" Content="User friends" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/User/wishlist" Content="User Wish List" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/User/distinct" Content="User Distinct Beers" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    
+                    <TextBlock Text="Search" Style="{StaticResource PhoneTextGroupHeaderStyle}"/>
+                    <HyperlinkButton NavigateUri="/Search/brewery" Content="Brewery Search" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Search/beer" Content="Beer Search" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Search/trending" Content="Trending" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+
+                    <TextBlock Text="Social" Style="{StaticResource PhoneTextGroupHeaderStyle}"/>
+                    <HyperlinkButton NavigateUri="/Social/checkin" Content="Checkin" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Social/Comment" Content="Add Comment" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Social/RemoveComment" Content="Remove Comment" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Social/Toast" Content="Toast" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+                    <HyperlinkButton NavigateUri="/Social/RemoveToast" Content="User Distinct Beers" Style="{StaticResource PhoneHyperlinkStyle}" IsEnabled="False" />
+
+                    
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->

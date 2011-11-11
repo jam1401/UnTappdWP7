@@ -3,10 +3,30 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:nav="clr-namespace:System.Windows.Navigation;assembly=Microsoft.Phone">
 
     <!--Application Resources-->
     <Application.Resources>
+        <system:String x:Key="AppName">Untappd Mobile API Explorer</system:String>
+        <system:String x:Key="MenuPage">Chooser Page</system:String>
+        <system:String x:Key="PubFeedPage">Pub Feed</system:String>
+        <system:String x:Key="PendingFriendsPage">Pending Friends</system:String>
+        <system:String x:Key="LogonPage">Untappd Logon</system:String>
+        <!-- Hyperlink style -->
+        <Style x:Key="PhoneHyperlinkStyle" TargetType="HyperlinkButton">
+            <Setter Property="Margin" Value="30,10,0,10"/>
+            <Setter Property="Foreground" Value="{StaticResource PhoneAccentBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <nav:UriMapper x:Key="UriMapper">
+            <nav:UriMapper.UriMappings>
+                <nav:UriMapping Uri="/Feed/pub" MappedUri="/Views/Feeds/Pub.xaml"/>
+                <nav:UriMapping Uri="/Friends/pending" MappedUri="/Views/Friends/PendingFriends.xaml" />
+            </nav:UriMapper.UriMappings>
+        </nav:UriMapper>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

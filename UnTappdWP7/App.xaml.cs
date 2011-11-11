@@ -22,6 +22,7 @@ namespace UnTappdWP7
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
         public PhoneApplicationFrame RootFrame { get; private set; }
+       
 
         /// <summary>
         /// Constructor for the Application object.
@@ -36,6 +37,8 @@ namespace UnTappdWP7
 
             // Phone-specific initialization
             InitializePhoneApplication();
+
+            this.RootFrame.UriMapper = Resources["UriMapper"] as UriMapper;
 
             // Show graphics profiling information while debugging.
             if (System.Diagnostics.Debugger.IsAttached)

@@ -68,6 +68,15 @@
     <Compile Include="service\MD5.cs" />
     <Compile Include="service\MD5Managed.cs" />
     <Compile Include="service\UntappdSvc.cs" />
+    <Compile Include="Views\Feeds\Pub.xaml.cs">
+      <DependentUpon>Pub.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Friends\PendingFriends.xaml.cs">
+      <DependentUpon>PendingFriends.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Logon.xaml.cs">
+      <DependentUpon>Logon.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -75,6 +84,18 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Feeds\Pub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Friends\PendingFriends.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Logon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
